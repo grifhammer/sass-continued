@@ -1,0 +1,75 @@
+$primaryDivTextColor: #ff00bb;
+
+body{
+	color: $primaryDivTextColor;
+}
+
+
+#test-div{
+	$primaryDivTextColor: #00ff00;
+	color: $primaryDivTextColor;
+}
+
+// SASS MATH - you cannot mix unit types, such as % and px in math.
+// + -- addition
+// - -- subtraction
+// / -- division (somtimes, / is shorthand... i.e. font; in these cases the / must be inside () )
+// * -- multiplication
+// % -- modulus
+// == -- conditional equal
+// != -- conditional non-equal
+
+$containerWidth: 100%;
+.homemade-col-1{
+	width: $containerWidth;
+	overflow: hidden;
+}
+.homemade-col-2{
+	width: ($containerWidth / 2);
+	float: left;
+	overflow: hidden;
+}
+.homemade-col-4{
+	width: ($containerWidth / 4);
+	float: left;
+}
+.random-size{
+	font-size: random(100) + px;
+}
+.max-size{
+	font-size: max(23,62,19,44,12,51) + px;
+}
+
+$startColor: #CAFFB9;
+$startWidth: 100%;
+$height: 50px;
+
+.inside-1{
+	$currentColor: darken($startColor, 20%);
+	$currentWidth: ($startWidth);
+	background-color: $currentColor;
+	width: $currentWidth;
+	height: $height*4;
+	clear: both;
+	.inside-2{
+		$currentColor: darken($currentColor, 20%);
+		$currentWidth: ($currentWidth / 2);
+		background-color: $currentColor;
+		width: $currentWidth;
+	height: $height*3;
+		.inside-3{
+			$currentColor: darken($currentColor, 20%);
+			$currentWidth: ($currentWidth / 2);
+			background-color: $currentColor;
+			width: $currentWidth;
+	height: $height*2;
+			.inside-4{
+				$currentColor: darken($currentColor, 20%);
+				$currentWidth: ($currentWidth / 2);
+				background-color: $currentColor;
+				width: $currentWidth;
+	height: $height;
+			}
+		}
+	}
+}
